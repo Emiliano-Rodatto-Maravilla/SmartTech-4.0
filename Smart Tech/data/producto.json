@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "nombre": "Celular Modelo A",
+        "descripcion": "Este celular cuenta con características de última tecnología, un excelente rendimiento y una cámara de alta calidad.",
+        "especificacion": "Memoria Ram: 8gb, Almacenamiento: 128gb, Cámara: 140Mpx",
+        "marca": "Marca A",
+        "precio": 299,
+        "precio_descuento": 249.99, 
+        "stock": 50,
+        "categoria": "Celular",
+        "url_imagen": "../assets/celular_1.webp"
+    },
+    {
+        "id": 2,
+        "nombre": "Celular Modelo B",
+        "descripcion": "Un teléfono con una pantalla impresionante y una duración de batería excepcional.",
+        "especificacion": "Memoria Ram: 8gb, Almacenamiento: 128gb, Cámara: 140Mpx",
+        "marca": "Marca B",
+        "precio": 399,
+        "stock": 30,
+        "categoria": "Celular",
+        "url_imagen": "../assets/celular_2.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Auricular Inalambrico",
+        "descripcion": "Para escuchar con todos los detalles.",
+        "especificacion": "Duración: 8Hr, Bateria: Litio",
+        "marca": "Marca C",
+        "precio": 19.99,
+        "stock": 100,
+        "categoria": "Accesorio",
+        "url_imagen": "../assets/Accesorio_1.png"
+    },
+    {
+        "id": 4,
+        "nombre": "Reloj Inteligente",
+        "descripcion": "Ver la hora y conectarse con el Celular.",
+        "especificacion": "Duración: 12Hr, Bateria: Litio",
+        "marca": "Marca D",
+        "precio": 150.50,
+        "stock": 100,
+        "categoria": "Accesorio",
+        "url_imagen": "../assets/Accesorio_2.webp"
+    }
+]

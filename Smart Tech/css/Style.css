@@ -1,0 +1,568 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #007bff;
+    padding: 15px;
+}
+
+nav a {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2em;
+    margin: 0.5px; /* Espaciado entre enlaces */
+    display: block; /* Para asegurar que ocupen el espacio completo */
+}
+
+.navbar a:hover {
+    background-color: #0056b3;
+}
+.bg-dark {
+    padding: 1rem; /* Añadir espacio interno al contenedor del menú */
+}
+/* Estilos para formularios de login y registro */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor de Productos */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+#lista-productos {
+    display: flex;
+    flex-direction: column; /* Por defecto en columna */
+    align-items: center; /* Centrar en móviles */
+    width: 100%;
+}
+
+.product-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 300px;
+    margin: 10px; /* Espaciado entre productos */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-card .card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-card h5 {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.product-card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.product-card .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.product-card .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsividad */
+@media (min-width: 768px) {
+    #lista-productos {
+        flex-direction: row; /* Cambiar a fila en pantallas más grandes */
+        flex-wrap: wrap; /* Permitir que los productos se ajusten */
+        justify-content: space-around; /* Espaciado entre productos */
+    }
+
+    .product-card {
+        width: calc(33.33% - 20px); /* Tres productos por fila, menos espacio */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%; /* Un producto por fila en pantallas pequeñas */
+    }
+}
+.whatsapp-chat {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000; /* Para asegurarse de que esté siempre visible */
+}
+
+.whatsapp-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.whatsapp-message {
+    background-color: #25D366;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: none; /* Puedes cambiarlo a "block" si deseas que siempre esté visible */
+}
+
+.whatsapp-chat:hover .whatsapp-message {
+    display: block;
+}
+/* Ventana deslizante del carrito */
+/* Estilo del carrito deslizante */
+.carrito-slider {
+    position: fixed;
+    top: 0;
+    right: -3500px; /* Oculta el slider inicialmente */
+    width: 350px;
+    height: 100%;
+    background-color: white;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+    transition: right 0.3s ease; /* Animación suave */
+    z-index: 1000; /* Asegúrate de que esté sobre otros elementos */
+    padding: 20px;
+    overflow-y: auto; /* Agrega un scrollbar si es necesario */
+}
+
+.carrito-slider.active {
+    right: 0; /* Muestra el slider cuando se activa */
+}
+
+/* Estilo general para el carrito */
+.carrito-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.carrito-item img {
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
+}
+
+.carrito-item div {
+    flex-grow: 1;
+}
+
+.carrito-item button {
+    margin: 0 5px;
+}
+
+/* Contador de productos */
+#carrito-count {
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 8px;
+    margin-left: 5px;
+}
+
+/* Mensajes dinámicos */
+.mensaje-dinamico {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+}
+
+
+.mensaje-dinamico.success {
+    background-color: green;
+}
+
+.mensaje-dinamico.error {
+    background-color: red;
+}
+
+.mensaje-dinamico.info {
+    background-color: blue;
+}
+/* Estilo para la imagen del detalle del producto */
+#producto-imagen {
+    max-width: 10%; /* Asegura que la imagen no se desborde del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+    margin: 20px auto; /* Margen alrededor de la imagen */
+    display: block; /* Asegura que el margen funcione */
+}
+
+/* Contenedor de producto en detalle */
+#producto-detalle {
+    margin: 20px auto; /* Centramos el contenedor de detalles */
+    max-width: 600px; /* Limitar el ancho del contenedor para que no sea demasiado ancho */
+}
+#producto-imagen {
+    width: 750px; /* Ancho fijo */
+    height: 180px; /* Alto fijo */
+    object-fit: cover; /* Recorta la imagen para llenar el espacio */
+    margin: 20px auto; /* Centrar la imagen */
+    display: block; /* Asegura que el margen funcione */
+}
+/* Apartado de Soporte */
+#soporte {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px; /* Limitar el ancho del contenedor */
+}
+
+#soporte h2 {
+    text-align: center;
+    color: #007bff; /* Color del título */
+    margin-bottom: 20px;
+}
+
+#soporteForm {
+    display: flex;
+    flex-direction: column; /* Disposición en columna */
+}
+
+#soporteForm label {
+    margin-bottom: 5px;
+    font-weight: bold; /* Negrita para las etiquetas */
+}
+
+#soporteForm input,
+#soporteForm textarea {
+    padding: 10px;
+    margin-bottom: 15px; /* Espaciado entre campos */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#soporteForm button {
+    background-color: #007bff; /* Color del botón */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#soporteForm button:hover {
+    background-color: #0056b3; /* Color del botón al pasar el mouse */
+}
+
+.wrapper {
+    display: inline-flex;
+    list-style: none;
+    height: 120px;
+    width: 100%;
+    padding-top: 40px;
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+  }
+  
+  .wrapper .icon {
+    position: relative;
+    background: #fff;
+    z-index: 0;
+    border-radius: 50%;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon::after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    z-index: -1;
+    border-radius: 50%;
+    top: 100%;
+  }
+  .wrapper .icon:hover:after {
+    animation: bg-pos 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 1 both;
+    animation-timing-function: ease-in-out;
+  }
+  
+  .wrapper .icon:hover {
+    color: #fff;
+    overflow: unset;
+    transition: color 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: overflow-toggle 0.7s;
+  }
+  
+  .wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  .wrapper .email::after {
+    background-color: #f21818;
+  }
+  .wrapper .whatsapp::after {
+    background-color: #1df239;
+  }
+  .wrapper .instagram::after {
+    background-color: #e4405f;
+  }
+  
+  .wrapper .email:hover .tooltip,
+  .wrapper .email:hover .tooltip::before {
+    background: #f21818 ;
+    color: #fff;
+  }
+  
+  .wrapper .whatsapp:hover .tooltip,
+  .wrapper .whatsapp:hover .tooltip::before {
+    background: #1df239;
+    color: #fff;
+  }
+  
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+    background: #e4405f;
+    color: #fff;
+  }
+  
+  @keyframes bg-pos {
+    0% {
+      top: 100%;
+    }
+    100% {
+      top: 0;
+    }
+  }
+  
+  @keyframes overflow-toggle {
+    0% {
+      overflow: hidden;
+    }
+    100% {
+      overflow: visible;
+    }
+  }
+ 
+
+  .chat-container {
+    width: 400px;
+    max-width: 90%;  /* Para que se adapte en dispositivos más pequeños */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado del chat */
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #25d366; /* Cambia el color si es necesario */
+}
+
+.chat-logo {
+    width: 30px; /* Ajusta el tamaño según prefieras */
+    height: auto;
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+/* Área de mensajes */
+.chat-messages {
+    height: 300px;
+    overflow-y: auto;
+    padding: 15px;
+    background-color: #f7f7f7;
+}
+
+/* Estilo de los mensajes */
+.message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.bot-message {
+    background-color: #e1ffc7;
+    text-align: left;
+}
+
+.user-message {
+    background-color: #daf8fe;
+    text-align: right;
+}
+
+/* Entrada de mensajes */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.chat-input button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #20c157;
+}
+.contenido-centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh; /* Ajusta según tu necesidad para centrar verticalmente */
+    padding: 20px;
+    margin-top: 20px; /* Espacio debajo del navbar */
+    margin-bottom: 20px; /* Espacio encima del footer */
+}
+.whatsapp-link {
+    display: inline-flex; /* Mantiene el contenido en línea */
+    align-items: center; /* Centra verticalmente el contenido */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    color: inherit; /* Hereda el color del texto */
+    margin-left: -4px; /* Ajusta según sea necesario para mantener la posición */
+}
+
+.whatsapp-link:hover {
+    text-decoration: underline; /* Agrega subrayado al pasar el mouse si deseas */
+}
